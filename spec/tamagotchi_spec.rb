@@ -24,4 +24,11 @@ describe(Tamagotchi) do
       expect(my_pet.is_alive()).to(eq(false))
     end
   end
+  describe('time_passes') do
+    it('changes the amount of resources as time passes') do
+      my_pet = Tamagotchi.new('Lil Guy', 'Griffin')
+      my_pet.time_passes()
+      expect(my_pet.food()).to(eq(9))
+    end
+  end
 end

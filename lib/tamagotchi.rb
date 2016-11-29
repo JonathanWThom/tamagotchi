@@ -6,6 +6,7 @@ class Tamagotchi
     @rest = 10
     @love = 10
     @poop = 0
+    @start_time = Time.new()
   end
   define_method(:name) do
     @name
@@ -30,5 +31,12 @@ class Tamagotchi
   end
   define_method(:set_food) do |level|
     @food = level
+  end
+  define_method(:time_passes) do
+    right_now = Time.new()
+    if right_now.sec - @start_time.sec == 0
+      @food -= 1
+      puts "works"
+    end
   end
 end
