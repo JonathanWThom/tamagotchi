@@ -19,11 +19,10 @@ post('/output') do
   end
 end
 
-
 post('/interaction') do
   interaction = params.fetch('interactions')
    @all_tamagotchis = Tamagotchi.all()
-  @all_tamagotchis[0].tamagotchi_changes(time_passes)
+   @all_tamagotchis[0].tamagotchi_changes(@all_tamagotchis[0].time_passes())
   if interaction == 'feed'
     @all_tamagotchis[0].feed()
   elsif interaction == 'pet'

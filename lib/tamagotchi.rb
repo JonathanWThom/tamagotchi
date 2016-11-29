@@ -47,7 +47,6 @@ class Tamagotchi
     end
   end
   define_method(:feed) do
-    puts 'hello'
     @food += 1
   end
   define_method(:nap) do
