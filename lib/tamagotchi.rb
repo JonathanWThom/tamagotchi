@@ -53,4 +53,7 @@ class Tamagotchi
   define_method(:pet) do
     @love += 1
   end
+  define_method(:clean) do
+    @poop -= 2
+  end
 end

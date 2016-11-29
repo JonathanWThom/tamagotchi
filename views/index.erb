@@ -1,16 +1,33 @@
-<form action="/output" method="post">
-  <div class="form-group">
-    <label for="name">Tamagotchi Name</label>
-    <input id="name" name="name" type="text">
-  </div>
-  <div class="form-group">
-    <label for="species">Tamagotchi Species</label>
-    <select class="form-control" name="species">
-      <option>Martian</option>
-      <option>Plutonian</option>
-      <option>Moonian</option>
-      <option>Jupitorian</option>
-    </select>
-  </div>
-  <button type="submit" class="btn">Create</button>
-</form>
+<div class="create-pet">
+  <form action="/output" method="post">
+    <div class="form-group">
+      <label for="name">Tamagotchi Name</label>
+      <input id="name" name="name" type="text">
+    </div>
+    <div class="form-group">
+      <label for="species">Tamagotchi Species</label>
+      <select class="form-control" name="species">
+        <option>Martian</option>
+        <option>Plutonian</option>
+        <option>Moonian</option>
+        <option>Jupitorian</option>
+      </select>
+    </div>
+    <button type="submit" class="btn">Create</button>
+  </form>
+</div>
+<div class="new-pet">
+  <h1>Your Tamagotchi</h1>
+  <form action="/interaction" method="post">
+    <div class="form-group">
+      <label for="interactions">Interact with your pet</label>
+      <select class="form-control" name="interactions">
+        <option>Feed</option>
+        <option>Pet</option>
+        <option>Nap</option>
+        <option>Clean</option>
+      </select>
+    </div>
+    <button type="submit" class="btn">Go</button>
+  </form>
+</div>
