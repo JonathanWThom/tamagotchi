@@ -31,4 +31,16 @@ describe('the interacting with pet path', {:type => :feature}) do
     click_button('Go')
     expect(page).to have_content('You did something to your pet. Nice work!')
   end
+
+  # it('allows the user to interact with their pet and displays changes') do
+  #   visit('/')
+  #   fill_in('pet_name', :with => 'Marvin')
+  #   select('Martian', :from => 'species')
+  #   click_button('Create')
+  #
+  #   visit('/')
+  #   select('Feed', :from => 'interactions')
+  #   click_button('Go')
+  #   expect(page).to have_content('You did something to your pet. Nice work!')
+  # end
 end

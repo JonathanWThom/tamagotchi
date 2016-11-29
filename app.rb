@@ -23,14 +23,20 @@ post('/interaction') do
   interaction = params.fetch('interactions')
    @all_tamagotchis = Tamagotchi.all()
    @all_tamagotchis[0].tamagotchi_changes(@all_tamagotchis[0].time_passes())
-  if interaction == 'feed'
-    @all_tamagotchis[0].feed()
-  elsif interaction == 'pet'
-    @all_tamagotchis[0].pet()
-  elsif interaction == 'nap'
-    @all_tamagotchis[0].nap()
-  elsif interaction == 'clean'
-    @all_tamagotchis[0].clean()
+   if @all_tamagotchis[0].is_alive
+    if interaction == 'feed'
+      @all_tamagotchis[0].feed()
+    elsif interaction == 'pet'
+      @all_tamagotchis[0].pet()
+    elsif interaction == 'nap'
+      @all_tamagotchis[0].nap()
+    elsif interaction == 'clean'
+      @all_tamagotchis[0].clean()
+    end
+    erb(:interaction)
+  else
+    erb(:graveyard)
   end
-  erb(:interaction)
+  # else
+  #   erb(:graveyard)
 end
