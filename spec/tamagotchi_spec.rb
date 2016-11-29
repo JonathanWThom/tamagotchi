@@ -24,11 +24,36 @@ describe(Tamagotchi) do
       expect(my_pet.is_alive()).to(eq(false))
     end
   end
-  describe('time_passes') do
+  describe('#time_passes') do
     it('changes the amount of resources as time passes') do
       my_pet = Tamagotchi.new('Lil Guy', 'Griffin')
-      my_pet.tamogotchi_changes(1)
+      my_pet.tamagotchi_changes(1)
       expect(my_pet.food()).to(eq(9))
+      expect(my_pet.rest()).to(eq(9))
+      expect(my_pet.love()).to(eq(9.5))
+      expect(my_pet.poop()).to(eq(2))
+      expect(my_pet.is_alive()).to(eq(true))
+    end
+  end
+  describe('#feed') do
+    it('increments food by 1') do
+      my_pet = Tamagotchi.new('Lil Guy', 'Griffin')
+      my_pet.feed()
+      expect(my_pet.food()).to(eq(11))
+    end
+  end
+  describe('#nap') do
+    it('increments rest by 1') do
+      my_pet = Tamagotchi.new('Lil Guy', 'Griffin')
+      my_pet.nap()
+      expect(my_pet.rest()).to(eq(11))
+    end
+  end
+  describe('#pet') do
+    it('increments food by 1') do
+      my_pet = Tamagotchi.new('Lil Guy', 'Griffin')
+      my_pet.pet()
+      expect(my_pet.love()).to(eq(11))
     end
   end
 end

@@ -36,11 +36,21 @@ class Tamagotchi
     right_now = Time.new()
     difference = right_now.min - @start_time.min
   end
-
-  define_method(:tamogotchi_changes) do |time|
-    time.times do
-      @food -= 1
-      puts "works"
+  define_method(:tamagotchi_changes) do |time|
+    if is_alive
+      @food -= time
+      @rest -= time
+      @love -= time * 0.5
+      @poop += time * 2
     end
+  end
+  define_method(:feed) do
+    @food += 1
+  end
+  define_method(:nap) do
+    @rest += 1
+  end
+  define_method(:pet) do
+    @love += 1
   end
 end
