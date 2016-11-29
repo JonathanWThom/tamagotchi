@@ -34,7 +34,11 @@ class Tamagotchi
   end
   define_method(:time_passes) do
     right_now = Time.new()
-    if right_now.sec - @start_time.sec == 0
+    difference = right_now.min - @start_time.min
+  end
+
+  define_method(:tamogotchi_changes) do |time|
+    time.times do
       @food -= 1
       puts "works"
     end
