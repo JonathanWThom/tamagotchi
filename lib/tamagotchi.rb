@@ -25,4 +25,10 @@ class Tamagotchi
   define_method(:poop) do
     @poop
   end
+  define_method(:is_alive) do
+    @food > 0 and @rest > 0 and @love > 0 and @poop < 10
+  end
+  define_method(:set_food) do |level|
+    @food = level
+  end
 end
