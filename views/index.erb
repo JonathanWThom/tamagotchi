@@ -1,8 +1,8 @@
-<div class="create-pet">
+<!-- <div class="create-pet"> -->
   <form action="/output" method="post">
     <div class="form-group">
-      <label for="name">Tamagotchi Name</label>
-      <input id="name" name="name" type="text">
+      <label for="pet_name">Tamagotchi Name</label>
+      <input id="pet_name" name="pet_name" type="text" class="form-control">
     </div>
     <div class="form-group">
       <label for="species">Tamagotchi Species</label>
@@ -15,19 +15,27 @@
     </div>
     <button type="submit" class="btn">Create</button>
   </form>
-</div>
-<div class="new-pet">
-  <h1>Your Tamagotchi</h1>
-  <form action="/interaction" method="post">
-    <div class="form-group">
-      <label for="interactions">Interact with your pet</label>
-      <select class="form-control" name="interactions">
-        <option>Feed</option>
-        <option>Pet</option>
-        <option>Nap</option>
-        <option>Clean</option>
-      </select>
-    </div>
-    <button type="submit" class="btn">Go</button>
-  </form>
-</div>
+  </div>
+  <div class="new-pet">
+    <% @all_tamagotchis.each() do |tamagotchi| %>
+      <h1>Your Tamagotchi</h1>
+      <h3>Name: <%= tamagotchi.name() %></h3>
+      <h3>Species: <%= tamagotchi.species() %></h3>
+      <h4>Food: <%= tamagotchi.food %></h4>
+      <h4>Love: <%= tamagotchi.love %></h4>
+      <h4>Rest: <%= tamagotchi.rest %></h4>
+      <h4>Poops: <%= tamagotchi.poop %></h4>
+      <form action="/interaction" method="post">
+        <div class="form-group">
+          <label for="interactions">Interact with your pet</label>
+          <select class="form-control" name="interactions">
+            <option value="feed">Feed</option>
+            <option value="pet">Pet</option>
+            <option value="nap">Nap</option>
+            <option value="clean">Clean</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Go</button>
+      </form>
+    <% end %>
+  </div>

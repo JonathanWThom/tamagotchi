@@ -1,4 +1,6 @@
 class Tamagotchi
+  @@all_tamagotchis = []
+
   define_method(:initialize) do |name, species|
     @name = name
     @species = species
@@ -45,6 +47,7 @@ class Tamagotchi
     end
   end
   define_method(:feed) do
+    puts 'hello'
     @food += 1
   end
   define_method(:nap) do
@@ -55,5 +58,16 @@ class Tamagotchi
   end
   define_method(:clean) do
     @poop -= 2
+  end
+
+  define_singleton_method(:all) do
+    @@all_tamagotchis
+  end
+
+  define_method(:save) do
+    @@all_tamagotchis.push(self)
+  end
+  define_singleton_method(:clear) do
+    @@all_tamagotchis = []
   end
 end
