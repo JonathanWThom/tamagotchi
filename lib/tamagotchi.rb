@@ -9,7 +9,18 @@ class Tamagotchi
     @love = 10
     @poop = 0
     @start_time = Time.new()
+    @id = @@all_tamagotchis.length().+(1)
   end
+
+  define_method(:id) do
+    puts "hello world"
+    @id
+  end
+
+  define_singleton_method(:all) do
+    @@all_tamagotchis
+  end
+
   define_method(:name) do
     @name
   end
@@ -28,6 +39,7 @@ class Tamagotchi
   define_method(:poop) do
     @poop
   end
+
   define_method(:is_alive) do
     @food > 0 and @rest > 0 and @love > 0 and @poop < 10
   end
@@ -59,14 +71,19 @@ class Tamagotchi
     @poop -= 2
   end
 
-  define_singleton_method(:all) do
-    @@all_tamagotchis
-  end
-
   define_method(:save) do
     @@all_tamagotchis.push(self)
   end
   define_singleton_method(:clear) do
     @@all_tamagotchis = []
+  end
+  define_singleton_method(:find) do |identification|
+    found_tomagotchi = nil
+    @@all_tamagotchis.each() do |pet|
+      if pet.id.eql?(identification.to_i)
+        found_tomagotchi = pet
+      end
+    end
+    found_tomagotchi
   end
 end

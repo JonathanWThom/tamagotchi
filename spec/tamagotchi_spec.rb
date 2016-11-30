@@ -1,5 +1,6 @@
 require('rspec')
 require('tamagotchi')
+require('pry-nav')
 
 describe(Tamagotchi) do
   before() do
@@ -72,6 +73,22 @@ describe(Tamagotchi) do
       Tamagotchi.new('Marvin', "Martian").save()
       Tamagotchi.clear()
       expect(Tamagotchi.all()).to(eq([]))
+    end
+  end
+  describe('#id') do
+    it('returns the id of the pet') do
+      new_pet = Tamagotchi.new('Marvin', "Martian")
+      new_pet.save()
+      expect(new_pet.id()).to(eq(1))
+    end
+  end
+  describe('.find') do
+    it('it will return a tomagotchi based on its id') do
+      new_pet = Tamagotchi.new('Marvin', "Martian")
+      new_pet.save()
+      another_pet = Tamagotchi.new('Bob', "Moonian")
+      another_pet.save()
+      expect(Tamagotchi.find(new_pet.id())).to(eq(new_pet))
     end
   end
 end
